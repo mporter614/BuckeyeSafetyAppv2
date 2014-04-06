@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BuckeyeSafetyAppv2</string>
+    <string name="title_activity_main">Buckeye Safety App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="settings_button">Settings</string>
+    <string name="help_button">Help</string>
+    <string name="gps_tracker_button">Buckeye Safety</string>
+    <string name="title_activity_gpstracker">Buckeye Safety Tracker</string>
+    <string name="title_activity_help">Help</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="helptext">\n\n\n\nBuckeye Safety provides real-time GPS monitoring services for the OSU campus area.\n\n\n\nTo
+        activate, simply tap the "Buckeye Safety" button from the main menu with GPS enabled. If you are within a customizable distance from crimes,
+         you will be alerted. This distance can be changed in settings.</string>
+    <string name="alert_radius">Alert Radius:</string>
+    <string name="alert_0.25mile">Quarter mile</string>
+    <string name="alert_0.5mile">Half mile</string>
+    <string name="alert_1mile">One mile</string>
+    
+    
+    
+    
+
+</resources>

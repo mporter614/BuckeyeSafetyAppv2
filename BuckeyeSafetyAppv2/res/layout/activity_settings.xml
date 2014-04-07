@@ -18,19 +18,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="@string/alert_0.25mile" />
+            android:text="@string/alert_0.25mile"
+                    android:onClick="onClick"
+             />
 
         <RadioButton
             android:id="@+id/radio1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/alert_0.5mile" />
+            android:text="@string/alert_0.5mile"
+                    android:onClick="onClick"
+             />
 
         <RadioButton
             android:id="@+id/radio2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/alert_1mile" />
+            android:text="@string/alert_1mile"
+                    android:onClick="onClick"
+             />
     </RadioGroup>
 
     <TextView

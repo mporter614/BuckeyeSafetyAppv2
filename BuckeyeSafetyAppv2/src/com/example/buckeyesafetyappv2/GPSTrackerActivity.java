@@ -15,6 +15,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
 public class GPSTrackerActivity extends Activity {
 	
@@ -28,6 +29,11 @@ public class GPSTrackerActivity extends Activity {
         try {
             // Loading map
             initilizeMap();
+            
+            googleMap.setMyLocationEnabled(true);
+            googleMap.getUiSettings().isMyLocationButtonEnabled();
+            
+            setMarkers();
  
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,6 +46,7 @@ public class GPSTrackerActivity extends Activity {
         if (googleMap == null) {
             googleMap = ((MapFragment) getFragmentManager().findFragmentById(
                     R.id.map)).getMap();
+            
  
             // check if map is created successfully or not
             if (googleMap == null) {
@@ -47,7 +54,29 @@ public class GPSTrackerActivity extends Activity {
                         "Sorry! unable to create maps", Toast.LENGTH_SHORT)
                         .show();
             }
+            
+            googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         }
+    }
+    
+    private void setMarkers() {
+    	
+    	double latitude1 = 39.999769;
+    	double longitude1 = -83.001232;
+    	
+    	double latitude2 = 40.013181;
+    	double longitude2 = -83.013248;
+    	
+    	MarkerOptions marker1 = new MarkerOptions().position(new LatLng(latitude1, longitude1)).title("Test Crime 1");
+    	MarkerOptions marker2 = new MarkerOptions().position(new LatLng(latitude1-.003000, longitude1-.002000)).title("Test Crime 2");
+    	MarkerOptions marker3 = new MarkerOptions().position(new LatLng(latitude2, longitude2)).title("Test Crime 3");
+    	
+    	marker2.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+    	marker3.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
+    	
+    	googleMap.addMarker(marker1);
+    	googleMap.addMarker(marker2);
+    	googleMap.addMarker(marker3);
     }
 	
 	@Override

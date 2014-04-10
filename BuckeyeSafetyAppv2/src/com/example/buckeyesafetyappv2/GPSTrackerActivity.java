@@ -2,6 +2,7 @@ package com.example.buckeyesafetyappv2;
 
 import android.support.v4.app.Fragment;
 import android.app.Activity;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +13,9 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Toast;
 import android.graphics.Color;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.location.LocationManager;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
@@ -27,6 +31,7 @@ import com.google.android.gms.maps.model.CircleOptions;
 public class GPSTrackerActivity extends Activity {
 	
 	private GoogleMap googleMap;
+	private LocationManager location;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,7 @@ public class GPSTrackerActivity extends Activity {
             googleMap.getUiSettings().isMyLocationButtonEnabled();
             
             setMarkers();
+            
  
         } catch (Exception e) {
             e.printStackTrace();
@@ -125,6 +131,17 @@ public class GPSTrackerActivity extends Activity {
     	googleMap.addCircle(circleOptions1);
     	googleMap.addCircle(circleOptions2);
     	googleMap.addCircle(circleOptions3);
+    	
+        location = (LocationManager) getSystemService(LOCATION_SERVICE);
+        Intent in = new Intent ("com.example.buckeyesafetyappv2");
+        
+        IntentFilter filter = new IntentFilter("com.example.buckeyesafetyappv2");
+        registerReceiver(new ProximityReceiver(), filter);
+        
+        PendingIntent pi = PendingIntent.getBroadcast(getApplicationContext(), -1, in, 0);
+        location.addProximityAlert(latitude2, longitude2, radius, -1, pi);
+        location.addProximityAlert(latitude1, longitude1, radius, -1, pi);
+        location.addProximityAlert(latitude1-.003000, longitude1-.002000, radius, -1, pi);
     	
 
     }

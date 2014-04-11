@@ -1,30 +1,20 @@
 package com.example.buckeyesafetyappv2;
 
-import android.support.v4.app.Fragment;
+
 import android.app.Activity;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.Toast;
-import android.graphics.Color;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.location.LocationManager;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.location.Geofence;
-import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.maps.model.CircleOptions;
 
 
@@ -101,9 +91,16 @@ public class GPSTrackerActivity extends Activity {
 
 	       }
     	
-    	MarkerOptions marker1 = new MarkerOptions().position(new LatLng(latitude1, longitude1)).title("Test Crime 1");
-    	MarkerOptions marker2 = new MarkerOptions().position(new LatLng(latitude1-.003000, longitude1-.002000)).title("Test Crime 2");
-    	MarkerOptions marker3 = new MarkerOptions().position(new LatLng(latitude2, longitude2)).title("Test Crime 3");
+	    //Set up Markers
+    	MarkerOptions marker1 = new MarkerOptions().position(new LatLng(latitude1, longitude1))
+    			.title("Car Break-in")
+    			.snippet("Occurance:\n4-9-2014 around 3AM\nLocation: Near Intersection of Summit St. and E 15th Ave");
+    	MarkerOptions marker2 = new MarkerOptions().position(new LatLng(latitude1-.003000, longitude1-.002000))
+    			.title("House Break-in")
+    			.snippet("Occurance:\n4-7-2014 around 1AM\nLocation: E 15th Ave");
+    	MarkerOptions marker3 = new MarkerOptions().position(new LatLng(latitude2, longitude2))
+    			.title("Armed Confrontation")
+    			.snippet("Occurance:\n4-3-2014 around 12AM\nLocation: Neil Ave near Tuttle Park");
     	
     	marker2.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
     	marker3.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW));
